@@ -1,8 +1,8 @@
 import { Router, Route } from "wouter-preact";
 
-import { Home, Course, Courses } from "@/pages";
-import { useScrollToTop } from "@/shared";
-import { Header } from "@/widgets";
+import { Home, Course, Courses } from "../pages";
+import { useScrollToTop } from "../shared";
+import { Header } from "../widgets";
 
 export const App = () => {
   useScrollToTop();

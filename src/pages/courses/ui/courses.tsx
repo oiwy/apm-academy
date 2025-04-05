@@ -1,6 +1,6 @@
 import { Link } from "wouter-preact";
 
-import { Accordion } from "@/shared";
+import { Accordion } from "../../../shared";
 
 const courses = [
   {

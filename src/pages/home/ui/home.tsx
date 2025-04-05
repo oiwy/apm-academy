@@ -19,7 +19,7 @@ export const useGlitchTypewriterLoop = (
 
   useEffect(() => {
     let i = 0;
-    let intervalId: number;
+    let intervalId: NodeJS.Timeout;
 
     const typeStep = () => {
       const slice = text.slice(0, i);
