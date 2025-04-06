@@ -29,7 +29,7 @@ export const Lessons = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [, setLocation] = useLocation();
 
-  const handleOpenLesson = (id: string) => {
+  const handleOpenLesson = (_id: string) => {
     setLocation(`/lessons`);
   };
 
