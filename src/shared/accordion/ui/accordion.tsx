@@ -15,12 +15,12 @@ export const Accordion = ({ items }: { items: any }) => {
           className="cursor-pointer rounded-xl border p-3 shadow transition duration-300 hover:shadow-lg"
           onClick={() => toggle(i)}
         >
-          <div className="flex items-center justify-between text-gray-800">
+          <div className="text-base-content flex items-center justify-between">
             <h3 className="text-lg font-semibold">{item.question}</h3>
             <span>{openIndex === i ? "−" : "+"}</span>
           </div>
           {openIndex === i && (
-            <p className="text-muted-foreground mt-2 text-sm text-gray-600">
+            <p className="text-muted-foreground text-neutral-content mt-2 text-sm">
               {item.answer}
             </p>
           )}

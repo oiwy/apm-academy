@@ -106,18 +106,18 @@ export const Course = ({ params }: { params: { id: string } }) => {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-gradient-to-br from-blue-50 to-white">
+      <section className="bg-base-100 relative">
         <div className="container mx-auto flex h-screen flex-col items-center justify-center gap-y-2 px-4 text-center lg:max-w-4xl">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="bg-gradient-to-tr from-sky-500 via-blue-500 to-emerald-500 bg-clip-text text-6xl font-extrabold text-transparent"
+            className="text-primary text-6xl font-extrabold"
           >
             {course.name}
           </motion.h1>
-          <p className="text-lg text-gray-600">{course.description}</p>
-          <div className="flex flex-col items-center gap-1 text-gray-700">
+          <p className="text-neutral-content text-lg">{course.description}</p>
+          <div className="text-neutral-content flex flex-col items-center gap-1">
             <p>
               <strong>Длительность:</strong> {course.duration}
             </p>
@@ -133,16 +133,16 @@ export const Course = ({ params }: { params: { id: string } }) => {
       {/* Что будет на курсе */}
       <section className="py-12">
         <div className="container mx-auto space-y-4">
-          <h2 className="text-4xl font-semibold text-gray-800">
+          <h2 className="text-base-content text-4xl font-semibold">
             Программа курса
           </h2>
           <div className="grid grid-cols-2 gap-3">
             {course.content.map((item, index) => (
               <div
                 key={`${item}-${index}`}
-                className="rounded-xl border border-gray-200 bg-white p-4 shadow-sm transition duration-300"
+                className="rounded-xl border p-4 shadow transition duration-300"
               >
-                <span className="text-gray-800">{item}</span>
+                <span className="text-base-content">{item}</span>
               </div>
             ))}
           </div>
@@ -155,18 +155,20 @@ export const Course = ({ params }: { params: { id: string } }) => {
       </section> */}
 
       {/* CTA Купить */}
-      <section className="bg-gradient-to-br from-blue-500 to-emerald-500">
-        <div className="container flex h-screen flex-col items-center justify-center space-y-5 py-12 text-center text-white">
+      <section className="bg-base-100">
+        <div className="text-base-content container flex h-screen flex-col items-center justify-center space-y-5 py-12 text-center">
           <div className="space-y-2">
             <h2 className="text-3xl font-bold">Присоединяйтесь к курсу</h2>
             <p className="">
               Начните обучение уже сегодня. Доступ откроется сразу после оплаты.
             </p>
           </div>
-          <div className="text-5xl font-extrabold">{course.price} ₽</div>
+          <div className="text-primary text-5xl font-extrabold">
+            {course.price} ₽
+          </div>
           <Link
-            className="rounded-xl bg-white px-8 py-3 font-semibold text-blue-600 transition hover:bg-gray-100"
-            href="/checkout"
+            className="bg-base-content hover:bg-base-content/80 text-primary rounded-xl px-8 py-3 font-semibold transition duration-300"
+            href={`/checkout/${course.id}`}
           >
             Купить курс
           </Link>

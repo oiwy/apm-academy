@@ -1,5 +1,9 @@
 import { Home } from "./home";
-import { Course } from "./course";
 import { Courses } from "./courses";
+import { Course } from "./course";
+import { Oferta } from "./oferta";
+import { Privacy } from "./privacy";
+import { Checkout } from "./checkout";
+import { Lessons } from "./lessons";
 
-export { Home, Course, Courses };
+export { Home, Courses, Course, Oferta, Privacy, Checkout, Lessons };

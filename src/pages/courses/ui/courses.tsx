@@ -1,4 +1,5 @@
 import { Link } from "wouter-preact";
+import { motion } from "framer-motion";
 
 import { Accordion } from "../../../shared";
 
@@ -78,14 +79,19 @@ export const Courses = () => {
       <section className="relative overflow-hidden pt-20">
         <div className="container space-y-6 py-6">
           <div className="flex flex-col gap-y-2">
-            <h1 className="text-4xl font-bold text-gray-800">Курсы</h1>
-            <p className="max-w-xl text-base text-gray-600">
+            <h1 className="text-primary text-4xl font-bold">Курсы</h1>
+            <p className="text-neutral-content max-w-xl">
               Мы создали для вас продуманные и практичные курсы по Frontend
               разработке — от основ до уровня профессионала.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
+          >
             {courses.map((item) => (
               <Link
                 key={item.name}
@@ -93,35 +99,41 @@ export const Courses = () => {
                 className="relative flex flex-col justify-between rounded-xl border p-4 font-sans shadow transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
               >
                 {item.bagde && (
-                  <span className="absolute -top-3 right-2 rounded-full bg-gray-800 px-2 py-1 text-xs font-semibold text-white">
+                  <span className="bg-base-100 border-base-content text-base-content absolute -top-3 right-2 rounded-xl border px-2 py-1 text-xs font-semibold shadow">
                     {item.bagde}
                   </span>
                 )}
                 <div className="space-y-2">
-                  <h3 className="text-xl leading-none font-semibold">
+                  <h3 className="text-base-content text-xl leading-none font-bold">
                     {item.name}
                   </h3>
-                  <p className="text-sm text-gray-600">{item.description}</p>
+                  <p className="text-neutral-content text-sm">
+                    {item.description}
+                  </p>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-sm font-semibold">{item.duration}</span>
-                  <span className="text-lg font-bold text-gray-800">
+                  <span className="text-base-content text-sm font-semibold">
+                    {item.duration}
+                  </span>
+                  <span className="text-base-content text-lg font-bold">
                     {item.price} ₽
                   </span>
                 </div>
               </Link>
             ))}
-          </div>
+          </motion.div>
         </div>
-        <div className="absolute -top-32 -right-32 size-64 rounded-full bg-radial-[at_50%_75%] from-sky-200 via-blue-400 to-indigo-900 to-90% blur-2xl"></div>
+        <div className="bg-primary absolute -top-32 -right-32 size-64 rounded-full blur-2xl"></div>
       </section>
 
-      <section className="bg-white py-10">
+      <section className="py-10">
         <div className="container space-y-4">
-          <h2 className="text-3xl font-bold">Сравнение курсов</h2>
+          <h2 className="text-base-content text-3xl font-bold">
+            Сравнение курсов
+          </h2>
           <div className="overflow-x-auto rounded-xl border">
-            <table className="min-w-full table-auto overflow-hidden rounded-xl border text-left shadow">
-              <thead className="bg-gray-100">
+            <table className="text-base-content min-w-full table-auto overflow-hidden rounded-xl border text-left shadow">
+              <thead>
                 <tr>
                   <th className="border p-4 font-semibold">Темы</th>
                   <th className="border p-4 font-semibold">HTML, CSS + JS</th>
@@ -162,7 +174,7 @@ export const Courses = () => {
                   ["Проект + ревью", true, true, true],
                   ["Помощь с трудоустройством", false, false, true],
                 ].map(([topic, basic, middle, pro], idx) => (
-                  <tr key={idx} className="hover:bg-gray-50">
+                  <tr key={idx} className="hover:bg-neutral-content/10">
                     <td className="border p-4">{topic}</td>
                     <td className="border p-4 text-center">
                       {basic ? "✅" : ""}
@@ -183,10 +195,10 @@ export const Courses = () => {
 
       <section className="relative overflow-hidden pb-20">
         <div className="z-10 container space-y-4 py-6">
-          <h2 className="text-3xl font-bold text-gray-800">F.A.Q.</h2>
+          <h2 className="text-base-content text-3xl font-bold">F.A.Q.</h2>
           <Accordion items={faq} />
         </div>
-        <div className="absolute -bottom-32 -left-32 z-0 size-64 animate-spin rounded-full bg-linear-to-t bg-radial-[at_50%_75%] from-sky-500 via-blue-500 to-emerald-500 to-90% blur-2xl"></div>
+        <div className="bg-primary absolute -bottom-16 -left-16 z-0 size-32 animate-spin rounded-full blur-2xl"></div>
       </section>
     </>
   );

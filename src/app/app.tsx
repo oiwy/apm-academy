@@ -1,8 +1,16 @@
 import { Router, Route } from "wouter-preact";
 
-import { Home, Course, Courses } from "../pages";
+import {
+  Home,
+  Courses,
+  Course,
+  Oferta,
+  Privacy,
+  Checkout,
+  Lessons,
+} from "../pages";
 import { useScrollToTop } from "../shared";
-import { Header } from "../widgets";
+import { Header, Footer } from "../widgets";
 
 export const App = () => {
   useScrollToTop();
@@ -13,10 +21,15 @@ export const App = () => {
       <Router>
         <main>
           <Route path="/" component={Home} />
-          <Route path="/course/:id" component={Course} />
           <Route path="/courses" component={Courses} />
+          <Route path="/oferta" component={Oferta} />
+          <Route path="/privacy" component={Privacy} />
+          <Route path="/lessons" component={Lessons} />
+          <Route path="/course/:id" component={Course} />
+          <Route path="/checkout/:id" component={Checkout} />
         </main>
       </Router>
+      <Footer />
     </>
   );
 };

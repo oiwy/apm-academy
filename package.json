@@ -17,6 +17,7 @@
     "@preact/preset-vite": "^2.10.1",
     "@tailwindcss/vite": "^4.1.0",
     "@types/node": "^22.14.0",
+    "daisyui": "^5.0.12",
     "path": "^0.12.7",
     "prettier": "3.5.3",
     "prettier-plugin-tailwindcss": "^0.6.11",
